@@ -6,6 +6,9 @@ import java.util.List;
 import com.game.constant.RulesEnum;
 import com.game.rules.WinRules;
 
+/*
+ * Player class having list of cards with Rank
+ * */
 public class Player {
 	private List<Card> cards;
 	private String name;
@@ -47,6 +50,9 @@ public class Player {
 		cards.remove(card);
 	}
 	
+	/*
+	 * This method return string with appended cards Rank and Suit 
+	 * */
 	public String showHand() {
 		StringBuffer buffer = new StringBuffer();
 		boolean allFaceUp = true;
@@ -57,10 +63,6 @@ public class Player {
 				allFaceUp = false;
 			}
 		}
-		
-//		if(allFaceUp) {
-//			buffer.append("Total Points = " + getTotalPoints() +  " \n");
-//		}
 		return buffer.toString();
 	}
 	
@@ -71,7 +73,13 @@ public class Player {
 	}
 	
 	
-	
+	/*
+	 * evaluateCards method determines Rank of Card per player
+	 * put appropriate victory condition.
+	 * 
+	 * This method create WinRule object and calls 
+	 * defined rules one by one in sequence to determine the player rank 
+	 * */
 	public RulesEnum evaluateCards() {
 		WinRules rule = new WinRules();
 		int trail = rule.isTrail(this.cards);

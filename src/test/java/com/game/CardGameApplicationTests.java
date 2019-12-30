@@ -3,7 +3,6 @@ package com.game;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -16,6 +15,7 @@ import com.game.pojo.Deck;
 import com.game.pojo.Player;
 
 class CardGameApplicationTests {
+	
 	@Test
 	public void testPlayerTrail() {
 		List<Player> listOfPlayers = new ArrayList<Player>();
@@ -110,9 +110,6 @@ class CardGameApplicationTests {
 	@Test
 	public void testPlayerTopSame() {
 		List<Player> listOfPlayers = new ArrayList<Player>();
-
-		
-		
 		Player p1 = new Player("P1");
 
 		Card c1 = new Card(Suit.HEARTS, Rank.KING);
@@ -136,13 +133,9 @@ class CardGameApplicationTests {
 		Card c8 = new Card(Suit.HEARTS, Rank.SEVEN);
 
 		Deck deck = new Deck();
-//		List<Card> deckCards =  Arrays.asList(c1,c2,c3,c4,c5,c6,c7,c8);
-		
 		List<Card> deckCards = new ArrayList<>();  
 				deckCards.add(c7);
 				deckCards.add(c8);
-		
-		
 		
 		Dealer dealer = new Dealer(deck);
 
@@ -152,7 +145,6 @@ class CardGameApplicationTests {
 		if(findWinner.size() > 1)  {
 			findWinner = dealer.doTie(findWinner);
 		}
-		
 		assertTrue(findWinner.get(0).getName().equals("P1"));			
 	}
 	

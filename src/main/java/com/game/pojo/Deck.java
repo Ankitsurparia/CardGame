@@ -15,7 +15,10 @@ public class Deck {
 		this.cards = new ArrayList<Card>();
 		populate();
 	}
-	
+
+	/*
+	 * populating cards into the list of cards.
+	 * */
 	public void populate() {
 		for (Suit suit : Suit.values()) {
 			for (Rank rank : Rank.values()) {

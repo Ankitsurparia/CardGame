@@ -12,6 +12,9 @@ import org.mockito.Mockito;
 import com.game.pojo.Card;
 import com.game.rules.WinRules;
 
+/*
+ * here mocking the WinRules with mockito
+ * */
 class WinRulesTest {
 
 	@Test

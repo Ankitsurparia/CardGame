@@ -22,12 +22,11 @@ public class CardGameApplication {
 		Dealer dealer = new Dealer(deck);
 		
 		/* Create our playing hands */
-		Player h1, h2, h3, h4;
-		h1= new Player("H1");
-		h2 = new Player("H2");
-		h3 = new Player("H3");
-		h4 = new Player("H4");
-		Player players[] = {h1, h2, h3, h4};
+		Player first= new Player("first");
+		Player second = new Player("second");
+		Player third = new Player("third");
+		Player fourth = new Player("fourth");
+		Player players[] = {first, second, third, fourth};
 		
 		/* Deal cards to our hands */
 		dealer.deal(players, 3);

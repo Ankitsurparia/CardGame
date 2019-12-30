@@ -12,6 +12,10 @@ import java.util.Set;
 
 import com.game.constant.RulesEnum;
 
+/*
+ * Dealer class is used to determined winner
+ * having findwinner method to determined winner of the game
+ * */
 public class Dealer {
 	private Deck deck;
 	
@@ -19,6 +23,14 @@ public class Dealer {
 		this.deck = deck;
 	}
 	
+	/*
+	 * This method taked input as list of player to determing winner and return Winner
+	 * of the game
+	 * 
+	 * here returning list of winner because If two player's 
+	 * with the top card has the same value then its return the list of tia player 
+	 * else return winner appended into the list.
+	 * */
 	public List<Player> findWinner(List<Player> playes) {
 		Map<Player, RulesEnum> map = new HashMap<Player, RulesEnum>();
 		for (Player player : playes) {
@@ -27,6 +39,7 @@ public class Dealer {
 		}
 		
 		Set<Entry<Player, RulesEnum>> entrySet = map.entrySet();
+		
 		Comparator<Entry<Player, RulesEnum>> valueComparator = new Comparator<Entry<Player, RulesEnum>>() {
             @Override
             public int compare(Entry<Player, RulesEnum> e1, Entry<Player, RulesEnum> e2) {
@@ -41,8 +54,7 @@ public class Dealer {
         
         List<Entry<Player, RulesEnum>> list = new ArrayList<Map.Entry<Player,RulesEnum>>(entrySet);
         Collections.sort(list, valueComparator);
-		
-         return getWinners(list);
+		return getWinners(list);
 	}
 
 	private List<Player> getWinners(List<Entry<Player, RulesEnum>> list) {
@@ -93,6 +105,12 @@ public class Dealer {
 		}
 	}
 
+	/*
+	 * This method take input as tia player of list and determine winner amoung them.
+	 * If the top card has the same value, each of the tied players draws a single card from the deck until 
+	 * a winner is found.
+	 * Only the newly drawn cards are compared to decide a tie. The top card wins a tie.
+	 * */
 	public List<Player> doTie(List<Player> findWinner) {
 		while(findWinner.size() > 1) {
 			findWinner.stream().forEach(e -> e.clear());
